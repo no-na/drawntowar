@@ -1,0 +1,35 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:c9fbadab58798835f9ed70085756e4bc:ac0037cafca3027f4e2004be0d745d9f:4e3c585b768732566d0c20f0a26d6bc8$
+#
+:format=40300
+:texture=soldier.png
+:size=256x512
+:pivotpoints=enabled
+:borders=disabled
+
+arrow1;1;447;77;64; 0.5;0.5; 0;0;0;0
+arrow2;80;447;77;64; 0.5;0.5; 0;0;0;0
+arrow3;159;447;77;64; 0.5;0.5; 0;0;0;0
+bow1;1;381;77;64; 0.5;0.5; 0;0;0;0
+bow2;80;381;77;64; 0.5;0.5; 0;0;0;0
+bow3;159;381;77;64; 0.5;0.5; 0;0;0;0
+circle1;1;315;64;64; 0.5;0.5; 0;0;0;0
+circle2;67;315;64;64; 0.5;0.5; 0;0;0;0
+circle3;133;315;64;64; 0.5;0.5; 0;0;0;0
+spear1;199;289;16;90; 0.5;0.5; 0;0;0;0
+spear2;217;289;16;90; 0.5;0.5; 0;0;0;0
+spear3;235;289;16;90; 0.5;0.5; 0;0;0;0
+string11;1;223;77;64; 0.5;0.5; 0;0;0;0
+string12;80;223;77;64; 0.5;0.5; 0;0;0;0
+string13;159;223;77;64; 0.5;0.5; 0;0;0;0
+string21;1;157;77;64; 0.5;0.5; 0;0;0;0
+string22;80;157;77;64; 0.5;0.5; 0;0;0;0
+string23;159;157;77;64; 0.5;0.5; 0;0;0;0
+string31;1;91;77;64; 0.5;0.5; 0;0;0;0
+string32;80;91;77;64; 0.5;0.5; 0;0;0;0
+string33;159;91;77;64; 0.5;0.5; 0;0;0;0
