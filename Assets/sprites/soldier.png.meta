@@ -1,30 +1,36 @@
 fileFormatVersion: 2
-guid: 652ae80369e5cab459a244f698a578f3
-timeCreated: 1502066569
+guid: 2a1d02fc0bcedd248997e70d68f14705
+timeCreated: 1502669759
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: circle1
-    21300002: circle2
-    21300004: circle3
-    21300006: spear1
-    21300008: spear2
-    21300010: spear3
-    21300012: arrow1
-    21300014: arrow2
-    21300016: arrow3
-    21300018: bow1
-    21300020: bow2
-    21300022: bow3
-    21300024: string11
-    21300026: string12
-    21300028: string13
-    21300030: string21
-    21300032: string22
-    21300034: string23
-    21300036: string31
-    21300038: string32
-    21300040: string33
+    21300000: arrow1
+    21300002: arrow2
+    21300004: arrow3
+    21300006: bow1
+    21300008: bow2
+    21300010: bow3
+    21300012: cav1
+    21300014: cav2
+    21300016: cav3
+    21300018: circle1
+    21300020: circle2
+    21300022: circle3
+    21300024: jouster1
+    21300026: jouster2
+    21300028: jouster3
+    21300030: spear1
+    21300032: spear2
+    21300034: spear3
+    21300036: string11
+    21300038: string12
+    21300040: string13
+    21300042: string21
+    21300044: string22
+    21300046: string23
+    21300048: string31
+    21300050: string32
+    21300052: string33
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -110,8 +116,8 @@ TextureImporter:
       name: arrow1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 447
+        x: 304
+        y: 315
         width: 77
         height: 64
       alignment: 0
@@ -123,8 +129,8 @@ TextureImporter:
       name: arrow2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 447
+        x: 383
+        y: 315
         width: 77
         height: 64
       alignment: 0
@@ -136,8 +142,8 @@ TextureImporter:
       name: arrow3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 447
+        x: 80
+        y: 315
         width: 77
         height: 64
       alignment: 0
@@ -150,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 381
+        y: 315
         width: 77
         height: 64
       alignment: 0
@@ -162,7 +168,7 @@ TextureImporter:
       name: bow2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 396
         y: 381
         width: 77
         height: 64
@@ -176,9 +182,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 159
-        y: 381
+        y: 315
         width: 77
         height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: cav1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 159
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: cav2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 159
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: cav3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 159
+        width: 64
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,7 +233,7 @@ TextureImporter:
       name: circle1
       rect:
         serializedVersion: 2
-        x: 1
+        x: 238
         y: 315
         width: 64
         height: 64
@@ -201,8 +246,8 @@ TextureImporter:
       name: circle2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 315
+        x: 1
+        y: 447
         width: 64
         height: 64
       alignment: 0
@@ -214,10 +259,49 @@ TextureImporter:
       name: circle3
       rect:
         serializedVersion: 2
-        x: 133
-        y: 315
+        x: 146
+        y: 447
         width: 64
         height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: jouster1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 143
+        width: 36
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: jouster2
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 143
+        width: 36
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: jouster3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 143
+        width: 36
+        height: 144
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +311,8 @@ TextureImporter:
       name: spear1
       rect:
         serializedVersion: 2
-        x: 199
-        y: 289
+        x: 1
+        y: 197
         width: 16
         height: 90
       alignment: 0
@@ -240,7 +324,7 @@ TextureImporter:
       name: spear2
       rect:
         serializedVersion: 2
-        x: 217
+        x: 462
         y: 289
         width: 16
         height: 90
@@ -253,7 +337,7 @@ TextureImporter:
       name: spear3
       rect:
         serializedVersion: 2
-        x: 235
+        x: 480
         y: 289
         width: 16
         height: 90
@@ -266,8 +350,8 @@ TextureImporter:
       name: string11
       rect:
         serializedVersion: 2
-        x: 1
-        y: 223
+        x: 212
+        y: 447
         width: 77
         height: 64
       alignment: 0
@@ -279,8 +363,8 @@ TextureImporter:
       name: string12
       rect:
         serializedVersion: 2
-        x: 80
-        y: 223
+        x: 67
+        y: 447
         width: 77
         height: 64
       alignment: 0
@@ -292,8 +376,8 @@ TextureImporter:
       name: string13
       rect:
         serializedVersion: 2
-        x: 159
-        y: 223
+        x: 291
+        y: 447
         width: 77
         height: 64
       alignment: 0
@@ -306,7 +390,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 157
+        y: 381
         width: 77
         height: 64
       alignment: 0
@@ -318,8 +402,8 @@ TextureImporter:
       name: string22
       rect:
         serializedVersion: 2
-        x: 80
-        y: 157
+        x: 159
+        y: 381
         width: 77
         height: 64
       alignment: 0
@@ -331,8 +415,8 @@ TextureImporter:
       name: string23
       rect:
         serializedVersion: 2
-        x: 159
-        y: 157
+        x: 238
+        y: 381
         width: 77
         height: 64
       alignment: 0
@@ -344,8 +428,8 @@ TextureImporter:
       name: string31
       rect:
         serializedVersion: 2
-        x: 1
-        y: 91
+        x: 80
+        y: 381
         width: 77
         height: 64
       alignment: 0
@@ -357,8 +441,8 @@ TextureImporter:
       name: string32
       rect:
         serializedVersion: 2
-        x: 80
-        y: 91
+        x: 370
+        y: 447
         width: 77
         height: 64
       alignment: 0
@@ -370,8 +454,8 @@ TextureImporter:
       name: string33
       rect:
         serializedVersion: 2
-        x: 159
-        y: 91
+        x: 317
+        y: 381
         width: 77
         height: 64
       alignment: 0
