@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Unit : MonoBehaviour, Unit_I
 {
-    private enum STATE { WANDER, CHASE, ATTACK, DIE };
+    protected enum STATE { WANDER, CHASE, ATTACK, DIE };
 
     public float wanderSpeed;
     public float chaseSpeed;
@@ -17,14 +17,14 @@ public abstract class Unit : MonoBehaviour, Unit_I
     public string targetTag;
     public int health;
 
-    private STATE currentState;
+    protected STATE currentState;
 
     public Animator myAnim;
 
-    private float currWanderTime;
-    private Vector2 currDirection;
-    private GameObject currTarget;
-    private Rigidbody2D myRB;
+    protected float currWanderTime;
+    protected Vector2 currDirection;
+    protected GameObject currTarget;
+    protected Rigidbody2D myRB;
     
     // Use this for initialization
     void Start ()
@@ -56,6 +56,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
                 UpdateDie();
                 break;
         }
+		Debug.DrawLine(transform.position,currDirection,Color.cyan);
 
     }
 
@@ -71,7 +72,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
             currTarget = GameObject.FindWithTag(targetTag);
         }
         currDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;//test
-        //currDirection = Vector3.RotateTowards(currDirection.normalized, currDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
+        currDirection = Vector3.RotateTowards(currDirection.normalized, currDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
         //currDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         currWanderTime = Random.Range(minWanderTime, maxWanderTime);
     }
@@ -80,6 +81,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     {
         myRB.velocity = currDirection * wanderSpeed;
         currWanderTime -= Time.deltaTime;
+		myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2 (currDirection.y, currDirection.x)) - 90f);
         //myAnim.transform.localEulerAngles = Vector3.forward * Mathf.Atan2(currDirection.y, currDirection.x);//test
         //myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
         if (currWanderTime <= 0f)
@@ -105,7 +107,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
 
     private void UpdateChase()
     {
-        print("Found");
+        //print("Found");
         if (currTarget == null)
         {
             //currTarget = GameObject.FindWithTag(targetTag);
@@ -143,7 +145,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     }
 
 
-    public void DoAttack()
+    public virtual void DoAttack()
     {
         print("Doing attack");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, strikeDistance, willAttackUnit.value);
