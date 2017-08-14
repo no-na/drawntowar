@@ -226,6 +226,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">cav1.png</key>
+            <key type="filename">cav2.png</key>
+            <key type="filename">cav3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,32,32,64</rect>
+                <key>scale9Paddings</key>
+                <rect>16,32,32,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">circle1.png</key>
             <key type="filename">circle2.png</key>
             <key type="filename">circle3.png</key>
@@ -238,6 +253,21 @@
                 <rect>16,16,32,32</rect>
                 <key>scale9Paddings</key>
                 <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">jouster1.png</key>
+            <key type="filename">jouster2.png</key>
+            <key type="filename">jouster3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>9,36,18,72</rect>
+                <key>scale9Paddings</key>
+                <rect>9,36,18,72</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -280,6 +310,12 @@
             <filename>string31.png</filename>
             <filename>string32.png</filename>
             <filename>string33.png</filename>
+            <filename>cav1.png</filename>
+            <filename>cav2.png</filename>
+            <filename>cav3.png</filename>
+            <filename>jouster1.png</filename>
+            <filename>jouster2.png</filename>
+            <filename>jouster3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

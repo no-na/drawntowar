@@ -4,9 +4,9 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.3.3</string>
+        <string>4.4.0</string>
         <key>fileName</key>
-        <string>/Users/joachim/Programming/texturepacker/framework_utils/Unity/AssetStore/PublishTexturePackerImporter/Assets/codeandweb.com/Example/SpriteSheet.tps</string>
+        <string>C:/Users/Noah/Desktop/UNITY/345/drawntowar/DEV/castle.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -72,11 +72,11 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>0</uint>
+        <uint>1</uint>
         <key>webpQualityLevel</key>
         <uint>101</uint>
         <key>textureSubPath</key>
@@ -86,7 +86,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -104,7 +104,7 @@
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Polygon</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -147,15 +147,10 @@
         </struct>
         <key>dataFileNames</key>
         <map type="GFileNameMap">
-            <key>data</key>
-            <struct type="DataFile">
-                <key>name</key>
-                <filename></filename>
-            </struct>
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>SpriteSheet/sprites.tpsheet</filename>
+                <filename>../Assets/castle.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -177,6 +172,8 @@
         <false/>
         <key>prependSmartFolderName</key>
         <false/>
+        <key>autodetectAnimations</key>
+        <true/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
@@ -184,7 +181,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>0</uint>
+            <uint>1</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
@@ -196,96 +193,33 @@
             <key>heuristicMask</key>
             <false/>
             <key>defaultPivotPoint</key>
-            <point_f>0.5,1</point_f>
+            <point_f>0.5,0.5</point_f>
             <key>writePivotPoints</key>
             <true/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Sprites/capguy/turn/0001.png</key>
-            <key type="filename">Sprites/capguy/turn/0001_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0002.png</key>
-            <key type="filename">Sprites/capguy/turn/0002_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0003.png</key>
-            <key type="filename">Sprites/capguy/turn/0003_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0004.png</key>
-            <key type="filename">Sprites/capguy/turn/0004_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0005.png</key>
-            <key type="filename">Sprites/capguy/turn/0005_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0006.png</key>
-            <key type="filename">Sprites/capguy/turn/0006_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0007.png</key>
-            <key type="filename">Sprites/capguy/turn/0007_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0008.png</key>
-            <key type="filename">Sprites/capguy/turn/0008_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0009.png</key>
-            <key type="filename">Sprites/capguy/turn/0009_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0010.png</key>
-            <key type="filename">Sprites/capguy/turn/0010_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0011.png</key>
-            <key type="filename">Sprites/capguy/turn/0011_n.png</key>
-            <key type="filename">Sprites/capguy/turn/0012.png</key>
-            <key type="filename">Sprites/capguy/turn/0012_n.png</key>
+            <key type="filename">castle1.png</key>
+            <key type="filename">castle2.png</key>
+            <key type="filename">castle3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,1</point_f>
+                <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>52,82,104,165</rect>
+                <rect>128,256,256,512</rect>
                 <key>scale9Paddings</key>
-                <rect>52,82,104,165</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">Sprites/capguy/walk/0001.png</key>
-            <key type="filename">Sprites/capguy/walk/0001_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0002.png</key>
-            <key type="filename">Sprites/capguy/walk/0002_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0003.png</key>
-            <key type="filename">Sprites/capguy/walk/0003_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0004.png</key>
-            <key type="filename">Sprites/capguy/walk/0004_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0005.png</key>
-            <key type="filename">Sprites/capguy/walk/0005_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0006.png</key>
-            <key type="filename">Sprites/capguy/walk/0006_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0007.png</key>
-            <key type="filename">Sprites/capguy/walk/0007_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0008.png</key>
-            <key type="filename">Sprites/capguy/walk/0008_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0009.png</key>
-            <key type="filename">Sprites/capguy/walk/0009_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0010.png</key>
-            <key type="filename">Sprites/capguy/walk/0010_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0011.png</key>
-            <key type="filename">Sprites/capguy/walk/0011_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0012.png</key>
-            <key type="filename">Sprites/capguy/walk/0012_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0013.png</key>
-            <key type="filename">Sprites/capguy/walk/0013_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0014.png</key>
-            <key type="filename">Sprites/capguy/walk/0014_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0015.png</key>
-            <key type="filename">Sprites/capguy/walk/0015_n.png</key>
-            <key type="filename">Sprites/capguy/walk/0016.png</key>
-            <key type="filename">Sprites/capguy/walk/0016_n.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,1</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>47,81,94,162</rect>
-                <key>scale9Paddings</key>
-                <rect>47,81,94,162</rect>
+                <rect>128,256,256,512</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>Sprites/capguy</filename>
+            <filename>castle1.png</filename>
+            <filename>castle2.png</filename>
+            <filename>castle3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
@@ -298,7 +232,7 @@
         <key>commonDivisorY</key>
         <uint>1</uint>
         <key>packNormalMaps</key>
-        <true/>
+        <false/>
         <key>autodetectNormalMaps</key>
         <true/>
         <key>normalMapFilter</key>

@@ -25,7 +25,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     private Vector2 currDirection;
     private GameObject currTarget;
     private Rigidbody2D myRB;
-
+    
     // Use this for initialization
     void Start ()
     {
@@ -65,7 +65,13 @@ public abstract class Unit : MonoBehaviour, Unit_I
         currentState = STATE.WANDER;
         //Vector2 targetDirection = (pcm.transform.position + transform.forward - transform.position).normalized;//test
         //currDirection = Vector3.RotateTowards(currDirection.normalized, targetDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;//test
-        currDirection = (currTarget.transform.position  - transform.position).normalized;//test
+        if (currTarget == null)
+        {
+            print("Wandder  again");
+            currTarget = GameObject.FindWithTag(targetTag);
+        }
+        currDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;//test
+        //currDirection = Vector3.RotateTowards(currDirection.normalized, currDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
         //currDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         currWanderTime = Random.Range(minWanderTime, maxWanderTime);
     }
@@ -78,9 +84,10 @@ public abstract class Unit : MonoBehaviour, Unit_I
         //myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
         if (currWanderTime <= 0f)
         {
-            EnterStateWander();
+            currTarget = GameObject.FindWithTag(targetTag);
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, sightDistance, willAttackUnit.value);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, sightDistance, willAttackUnit.value);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, sightDistance, currDirection, sightDistance, willAttackUnit.value);
         if (hit.collider != null)
         {
             currTarget = hit.collider.gameObject;
@@ -93,18 +100,23 @@ public abstract class Unit : MonoBehaviour, Unit_I
         currentState = STATE.CHASE;
         //currTarget = GameObject.FindWithTag("Player");
         //currTarget = target;
-        currDirection = (target.transform.position + target.transform.forward - transform.position).normalized;
+        currDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) + target.transform.forward - transform.position).normalized;
     }
 
     private void UpdateChase()
     {
         print("Found");
-        Vector2 targetDirection = (currTarget.transform.position - transform.position).normalized;
+        if (currTarget == null)
+        {
+            //currTarget = GameObject.FindWithTag(targetTag);
+            EnterStateWander();
+        }
+        Vector2 targetDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;
         currDirection = Vector3.RotateTowards(currDirection.normalized, targetDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
         myRB.velocity = currDirection * chaseSpeed;
         //myAnim.transform.localEulerAngles = Vector3.forward * Mathf.Atan2(currDirection.y, currDirection.x);
         //myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
-        float targetDistance = Vector3.Distance(currTarget.transform.position, transform.position);
+        float targetDistance = Vector3.Distance(currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position), transform.position);
         if (targetDistance <= strikeDistance)
         {
             print("Entering Attack");
