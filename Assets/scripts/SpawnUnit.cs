@@ -9,6 +9,7 @@ public class SpawnUnit : MonoBehaviour {
 	
 	public void Spawn(){
 		reticule.SetActive(true);
+		reticule.GetComponent<Reticule>().ResetPosition();
 		reticule.GetComponent<Reticule>().unit = unit;
 	}
 

@@ -199,6 +199,33 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">arrow1.png</key>
+            <key type="filename">arrow2.png</key>
+            <key type="filename">arrow3.png</key>
+            <key type="filename">bow1.png</key>
+            <key type="filename">bow2.png</key>
+            <key type="filename">bow3.png</key>
+            <key type="filename">string11.png</key>
+            <key type="filename">string12.png</key>
+            <key type="filename">string13.png</key>
+            <key type="filename">string21.png</key>
+            <key type="filename">string22.png</key>
+            <key type="filename">string23.png</key>
+            <key type="filename">string31.png</key>
+            <key type="filename">string32.png</key>
+            <key type="filename">string33.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>19,16,39,32</rect>
+                <key>scale9Paddings</key>
+                <rect>19,16,39,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">circle1.png</key>
             <key type="filename">circle2.png</key>
             <key type="filename">circle3.png</key>
@@ -238,6 +265,21 @@
             <filename>spear2.png</filename>
             <filename>spear3.png</filename>
             <filename>circle1.png</filename>
+            <filename>arrow1.png</filename>
+            <filename>arrow2.png</filename>
+            <filename>arrow3.png</filename>
+            <filename>bow1.png</filename>
+            <filename>bow2.png</filename>
+            <filename>bow3.png</filename>
+            <filename>string11.png</filename>
+            <filename>string12.png</filename>
+            <filename>string13.png</filename>
+            <filename>string21.png</filename>
+            <filename>string22.png</filename>
+            <filename>string23.png</filename>
+            <filename>string31.png</filename>
+            <filename>string32.png</filename>
+            <filename>string33.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
