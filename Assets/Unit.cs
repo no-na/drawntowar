@@ -17,6 +17,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     public string targetTag;
     public int health;
     public int damageAmount;
+    public int cost;
 
     protected STATE currentState;
 
@@ -232,8 +233,13 @@ public abstract class Unit : MonoBehaviour, Unit_I
 
     private void EnterStateDie()
     {
+        Currency currency = gameObject.GetComponent<Currency>();
         print("Entered Death");
         currentState = STATE.DIE;
+        if(this.tag == "Enemy")
+        {
+           currency.GetPaid(cost);
+        }
         //myAnim.SetTrigger("die");
         myRB.velocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
