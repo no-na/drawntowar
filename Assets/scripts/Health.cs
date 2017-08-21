@@ -14,7 +14,8 @@ public class Health : MonoBehaviour
         health -= damageAmount;
         if (health <= 0)
         {
-            myController.Die();
+            print("Castle is dead");
+            //myController.Die();
         }
     }
 }

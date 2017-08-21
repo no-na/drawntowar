@@ -16,6 +16,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     public float rotationSpeed;
     public string targetTag;
     public int health;
+    public int damageAmount;
 
     protected STATE currentState;
 
@@ -68,8 +69,12 @@ public abstract class Unit : MonoBehaviour, Unit_I
         //currDirection = Vector3.RotateTowards(currDirection.normalized, targetDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;//test
         if (currTarget == null)
         {
-            print("Wandder  again");
+            print("Wander  again");
             currTarget = GameObject.FindWithTag(targetTag);
+            if(currTarget == null)
+            {
+                print("All dead");
+            }
         }
         currDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;//test
         currDirection = Vector3.RotateTowards(currDirection.normalized, currDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
@@ -90,11 +95,52 @@ public abstract class Unit : MonoBehaviour, Unit_I
         }
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, sightDistance, willAttackUnit.value);
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, sightDistance, currDirection, sightDistance, willAttackUnit.value);
+        //Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, sightDistance, willAttackUnit.value);
+        //If self is a player instantantly chase the enemy
+        /*
+        if (targets != null && targets.Length != 0)
+        {
+
+            
+            if (targetTag == "Enemy")
+            {
+                currTarget = targets[0].gameObject;
+                EnterStateChase(targets[0].gameObject);
+            }
+            //If self is an enemy we need to iterate through all targets until we find a player or if there's only a castle
+            else
+            {
+                foreach (Collider2D cols in targets)
+                {
+                    if (cols != null)
+                    {
+                        GameObject targ = cols.gameObject;
+                        //Prioritize players
+                        if (targ.CompareTag("Player"))
+                        {
+                            print("See Him");
+                            
+                            currTarget = targ.gameObject;
+                            print(currTarget.tag);
+                            EnterStateChase(targ.gameObject);
+                        }
+                    }
+                }
+                currTarget = targets[0].gameObject;
+                EnterStateChase(targets[0].gameObject);
+
+            }
+            
+        }
+        */
+
+
         if (hit.collider != null)
         {
             currTarget = hit.collider.gameObject;
             EnterStateChase(hit.collider.gameObject);
         }
+        
     }
 
     private void EnterStateChase(GameObject target)
@@ -153,15 +199,20 @@ public abstract class Unit : MonoBehaviour, Unit_I
         {
             if (hit.collider.gameObject.GetComponent<Unit>() != null)
             {
-                hit.collider.gameObject.GetComponent<Unit>().GetHit();
+                hit.collider.gameObject.GetComponent<Unit>().GetHit(damageAmount);
+            }
+
+            if (hit.collider.gameObject.GetComponent<Health>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
             }
         }
     }
 
-    public void GetHit()
+    public void GetHit(int dmgAmnt)
     {
         print("HIT");
-        health--;
+        health -= dmgAmnt;
         if (health <= 0)
         {
             myRB.velocity = Vector2.zero;

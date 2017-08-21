@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Soldier : Unit
 {
-	private Animator spearAnimator;
+
+
+    private Animator spearAnimator;
 	
 	void Awake()
 	{
@@ -20,7 +22,12 @@ public class Soldier : Unit
         {
             if (hit.collider.gameObject.GetComponent<Unit>() != null)
             {
-                hit.collider.gameObject.GetComponent<Unit>().GetHit();
+                hit.collider.gameObject.GetComponent<Unit>().GetHit(damageAmount);
+            }
+
+            if(hit.collider.gameObject.GetComponent<Health>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
             }
         }
     }
