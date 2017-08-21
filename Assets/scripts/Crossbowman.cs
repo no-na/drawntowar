@@ -23,7 +23,16 @@ public class Crossbowman : Unit
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, strikeDistance, willAttackUnit.value);
         if (hit.collider != null)
         {
-			projectile.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(transform.position,hit.collider.gameObject.transform.position,3f) * 3f;
+			Vector2 projectilePos = projectile.transform.position;
+			Vector2 targetPos = hit.collider.gameObject.transform.position;
+			
+			Debug.DrawLine(projectilePos,targetPos,Color.red);
+	
+			//projectile.transform.LookAt(hit.collider.gameObject.transform);
+			Vector2 vel = new Vector2((targetPos.x - projectilePos.x),(targetPos.y-projectilePos.y));
+			vel.Normalize();
+			projectile.GetComponent<Rigidbody2D>().velocity = vel * 10f;
+			//projectile.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(transform.position,hit.collider.gameObject.transform.localPosition,3f);// * 3f;
 			
             if (hit.collider.gameObject.GetComponent<Unit>() != null)
             {
