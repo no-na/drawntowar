@@ -18,6 +18,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     public int health;
     public int damageAmount;
     public int cost;
+	public GameObject moneyExplosion; //Coin particle effect used by dead enemies.
 
     protected STATE currentState;
 
@@ -236,10 +237,12 @@ public abstract class Unit : MonoBehaviour, Unit_I
       //  Currency currency = gameObject.GetComponent<Currency>();
         print("Entered Death");
         currentState = STATE.DIE;
-        //if(this.tag == "Enemy")
-        //{
-        //   currency.GetPaid(cost);
-        //}
+        if(this.tag == "Enemy")
+        {
+           GameObject.Find("Currency").GetComponent<Currency>().GetPaid(cost);
+		   GameObject boom = Instantiate(moneyExplosion, transform.position, Quaternion.identity);
+		   Destroy (boom, 0.2f);
+        }
         //myAnim.SetTrigger("die");
         myRB.velocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;

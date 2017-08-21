@@ -11,7 +11,7 @@ public class RangedUnitReload : MonoBehaviour {
 	}
 
 	public void Reload(){
-		print("RELOAD");
+		projectile.SetActive(true);
 		projectile.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		projectile.transform.localPosition = Vector3.zero;
 	}

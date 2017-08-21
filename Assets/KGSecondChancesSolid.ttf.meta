@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d709ea7d8e5b2524384503860d817112
+timeCreated: 1503349229
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: KG Second Chances Solid
+  fontNames:
+  - KG Second Chances Solid
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

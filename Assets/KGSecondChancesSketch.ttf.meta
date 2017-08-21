@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 59c2d8cc35ce4e941bdd7d8a7dad0abd
+timeCreated: 1503349229
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: KG Second Chances Sketch
+  fontNames:
+  - KG Second Chances Sketch
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

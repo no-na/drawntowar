@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Crossbowman : Unit
 {
-	public GameObject projectile;
+	private GameObject projectile;
+	private FireDistance fireDistance;
 
 
     private Animator weaponAnimator;
@@ -13,6 +14,7 @@ public class Crossbowman : Unit
 	{
 		weaponAnimator = transform.GetChild(0).transform.GetChild(0).GetComponent<Animator>();
 		projectile = transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).gameObject;
+		fireDistance = projectile.GetComponent<FireDistance>();
 	}
 	
 	public override void DoAttack()
@@ -25,24 +27,20 @@ public class Crossbowman : Unit
         {
 			Vector2 projectilePos = projectile.transform.position;
 			Vector2 targetPos = hit.collider.gameObject.transform.position;
+			if(hit.collider.gameObject != null){
+				fireDistance.SetTarget(hit.collider.gameObject,damageAmount);
+				fireDistance.UpdateTargetDistance();
 			
-			Debug.DrawLine(projectilePos,targetPos,Color.red);
-	
-			//projectile.transform.LookAt(hit.collider.gameObject.transform);
-			Vector2 vel = new Vector2((targetPos.x - projectilePos.x),(targetPos.y-projectilePos.y));
-			vel.Normalize();
-			projectile.GetComponent<Rigidbody2D>().velocity = vel * 10f;
-			//projectile.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(transform.position,hit.collider.gameObject.transform.localPosition,3f);// * 3f;
+				Debug.DrawLine(projectilePos,targetPos,Color.red);
+		
+				//projectile.transform.LookAt(hit.collider.gameObject.transform);
+				Vector2 vel = new Vector2((targetPos.x - projectilePos.x),(targetPos.y-projectilePos.y));
+				vel.Normalize();
+				projectile.GetComponent<Rigidbody2D>().velocity = vel * 10f;
+				//projectile.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(transform.position,hit.collider.gameObject.transform.localPosition,3f);// * 3f;
+			}
 			
-            if (hit.collider.gameObject.GetComponent<Unit>() != null)
-            {
-                hit.collider.gameObject.GetComponent<Unit>().GetHit(damageAmount);
-            }
-
-            if(hit.collider.gameObject.GetComponent<Health>() != null)
-            {
-                hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
-            }
+            
         }
     }
 	
