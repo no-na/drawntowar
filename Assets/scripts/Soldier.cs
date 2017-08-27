@@ -25,10 +25,11 @@ public class Soldier : Unit
                 hit.collider.gameObject.GetComponent<Unit>().GetHit(damageAmount);
             }
 
-            if(hit.collider.gameObject.GetComponent<Health>() != null)
+            if (hit.collider.gameObject.GetComponent<Health>() != null)
             {
                 hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
             }
         }
+        
     }
 }

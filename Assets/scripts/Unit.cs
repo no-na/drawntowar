@@ -213,10 +213,11 @@ public abstract class Unit : MonoBehaviour, Unit_I
 
     public void GetHit(int dmgAmnt)
     {
-        print("HIT");
+        print(tag + "HIT");
         health -= dmgAmnt;
         if (health <= 0)
         {
+            print(tag + " Died valiantly");
             myRB.velocity = Vector2.zero;
             Die();
         }
