@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CastleHealthDisplay : MonoBehaviour
+public class WinLoss : MonoBehaviour
 {
-	
-	public Health castleHealth;
 
 	// Use this for initialization
 	void Start ()
@@ -17,6 +14,16 @@ public class CastleHealthDisplay : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		GetComponent<Text>().text = "CASTLE: " + castleHealth.health.ToString();
+		
 	}
+
+    public void Win()
+    {
+
+    }
+
+    public void Lose()
+    {
+
+    }
 }

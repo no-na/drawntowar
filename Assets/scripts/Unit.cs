@@ -75,7 +75,9 @@ public abstract class Unit : MonoBehaviour, Unit_I
             currTarget = GameObject.FindWithTag(targetTag);
             if(currTarget == null)
             {
+                WinLoss win = new WinLoss();
                 print("All dead");
+                win.Win();
             }
         }
         currDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;//test
