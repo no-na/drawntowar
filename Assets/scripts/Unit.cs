@@ -242,7 +242,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
         {
            GameObject.Find("Currency").GetComponent<Currency>().GetPaid(cost);
 		   GameObject boom = Instantiate(moneyExplosion, transform.position, Quaternion.identity);
-		   Destroy (boom, 0.2f);
+		   Destroy (boom, 0.5f);
         }
         //myAnim.SetTrigger("die");
         myRB.velocity = Vector2.zero;

@@ -29,7 +29,6 @@ public class Crossbowman : Unit
 			Vector2 targetPos = hit.collider.gameObject.transform.position;
 			if(hit.collider.gameObject != null){
 				fireDistance.SetTarget(hit.collider.gameObject,damageAmount);
-				fireDistance.UpdateTargetDistance();
 			
 				Debug.DrawLine(projectilePos,targetPos,Color.red);
 		

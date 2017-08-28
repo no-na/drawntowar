@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     public int health;
-    public SoldierController myController;
+	public GameObject resultScreen;
+	public Sprite loseSprite;
 
 
     // Update is called once per frame
@@ -15,6 +17,8 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             print("Castle is dead");
+			resultScreen.SetActive(true);
+			resultScreen.GetComponent<Image>().sprite = loseSprite;
             //myController.Die();
         }
     }

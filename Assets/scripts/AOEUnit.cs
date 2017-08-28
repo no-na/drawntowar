@@ -16,7 +16,7 @@ public class AOEUnit : Unit
     public override void DoAttack()
     {
         print("Doing attack");
-        spearAnimator.Play("spear-strike", 1, 0f);
+        spearAnimator.Play("club-strike", 1, 0f);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, strikeDistance, willAttackUnit.value);
         if (hit.collider != null)
         {

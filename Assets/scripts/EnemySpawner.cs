@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour {
     public GameObject calvary;
     public GameObject soldier;
 	public GameObject crossbowman;
+	public GameObject giant;
+	public GameObject wizard;
     public float spawnTime = 6f;
+	
+	public GameObject resultScreen;
+	public Sprite winSprite;
 
     private int soldBase = 3;
     private int calvBase = 1;
-	private int crossBase = 1;
+	private int crossBase = -2;
+	private int giantBase = -5;
+	private int wizardBase = -10;
     private int level = 1;
 
     private float tillSpawn;
@@ -41,10 +49,22 @@ public class EnemySpawner : MonoBehaviour {
             {
                 Instantiate(crossbowman, transform.position + new Vector3(0, Random.Range(-3.5f, 3.5f), 0), Quaternion.identity);
             }
+			for (int i = 0; i < giantBase + level; i++)
+            {
+                Instantiate(giant, transform.position + new Vector3(0, Random.Range(-3.5f, 3.5f), 0), Quaternion.identity);
+            }
+			for (int i = 0; i < wizardBase + level; i++)
+            {
+                Instantiate(wizard, transform.position + new Vector3(0, Random.Range(-3.5f, 3.5f), 0), Quaternion.identity);
+            }
 
             tillSpawn = spawnTime;
-
+			level++;
         }
+		if(level > 20){
+			resultScreen.SetActive(true);
+			resultScreen.GetComponent<Image>().sprite = winSprite;
+		}
         
     }
 }
