@@ -6,6 +6,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
 {
     protected enum STATE { WANDER, CHASE, ATTACK, DIE };
 
+
     public float wanderSpeed;
     public float chaseSpeed;
     public float minWanderTime;
@@ -28,6 +29,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
     protected Vector2 currDirection;
     protected GameObject currTarget;
     protected Rigidbody2D myRB;
+    protected bool attCastle = false;
     
     // Use this for initialization
     void Start ()
@@ -69,6 +71,12 @@ public abstract class Unit : MonoBehaviour, Unit_I
         currentState = STATE.WANDER;
         //Vector2 targetDirection = (pcm.transform.position + transform.forward - transform.position).normalized;//test
         //currDirection = Vector3.RotateTowards(currDirection.normalized, targetDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;//test
+        if(attCastle)
+        {
+            print("Flag: attCasle");
+            currTarget = GameObject.FindGameObjectWithTag("Castle");
+            EnterStateAttack();
+        }
         if (currTarget == null)
         {
             print("Wander  again");
@@ -91,57 +99,62 @@ public abstract class Unit : MonoBehaviour, Unit_I
 		myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2 (currDirection.y, currDirection.x)) - 90f);
         //myAnim.transform.localEulerAngles = Vector3.forward * Mathf.Atan2(currDirection.y, currDirection.x);//test
         //myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
+        if (attCastle)
+        {
+            print("Flag: attCasle");
+            currTarget = GameObject.FindGameObjectWithTag("Castle");
+            EnterStateAttack();
+        }
         if (currWanderTime <= 0f)
         {
             currTarget = GameObject.FindWithTag(targetTag);
         }
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, currDirection, sightDistance, willAttackUnit.value);
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, sightDistance, currDirection, sightDistance, willAttackUnit.value);
-        //Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, sightDistance, willAttackUnit.value);
+        //RaycastHit2D hit = Physics2D.CircleCast(transform.position, sightDistance, currDirection, sightDistance, willAttackUnit.value);
+        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, sightDistance, willAttackUnit.value);
         //If self is a player instantantly chase the enemy
-        /*
         if (targets != null && targets.Length != 0)
         {
+            float closest = float.MaxValue;
 
-            
-            if (targetTag == "Enemy")
-            {
-                currTarget = targets[0].gameObject;
-                EnterStateChase(targets[0].gameObject);
-            }
             //If self is an enemy we need to iterate through all targets until we find a player or if there's only a castle
-            else
-            {
                 foreach (Collider2D cols in targets)
                 {
                     if (cols != null)
                     {
                         GameObject targ = cols.gameObject;
-                        //Prioritize players
-                        if (targ.CompareTag("Player"))
-                        {
-                            print("See Him");
-                            
-                            currTarget = targ.gameObject;
-                            print(currTarget.tag);
-                            EnterStateChase(targ.gameObject);
-                        }
+                    //Prioritize players
+                    /*
+                    if (targ.CompareTag("Player"))
+                    {
+                        print("See Him");
+
+                        currTarget = targ.gameObject;
+                        print(currTarget.tag);
+                        EnterStateChase(targ.gameObject);
+                    }
+                    */
+                    float targDist = (transform.position - targ.transform.position).sqrMagnitude;
+                    if(targDist < closest)
+                    {
+                        closest = targDist;
+                        currTarget = targ;
+                    }
+                        
                     }
                 }
-                currTarget = targets[0].gameObject;
-                EnterStateChase(targets[0].gameObject);
-
-            }
+                //currTarget = targets[0].gameObject;
+                EnterStateChase(currTarget);
             
         }
-        */
 
-
+        /*
         if (hit.collider != null)
         {
             currTarget = hit.collider.gameObject;
             EnterStateChase(hit.collider.gameObject);
         }
+        */
         
     }
 
@@ -164,10 +177,10 @@ public abstract class Unit : MonoBehaviour, Unit_I
         Vector2 targetDirection = (currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position) - transform.position).normalized;
         currDirection = Vector3.RotateTowards(currDirection.normalized, targetDirection, rotationSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
         myRB.velocity = currDirection * chaseSpeed;
-        //myAnim.transform.localEulerAngles = Vector3.forward * Mathf.Atan2(currDirection.y, currDirection.x);
-        //myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
+        myAnim.transform.localEulerAngles = Vector3.forward * Mathf.Atan2(currDirection.y, currDirection.x);
+        myAnim.transform.localEulerAngles = Vector3.forward * ((Mathf.Rad2Deg * Mathf.Atan2(currDirection.y, currDirection.x)) - 90f);
         float targetDistance = Vector3.Distance(currTarget.GetComponent<Collider2D>().bounds.ClosestPoint(transform.position), transform.position);
-        if (targetDistance <= strikeDistance)
+        if (attCastle || targetDistance <= strikeDistance)
         {
             print("Entering Attack");
             EnterStateAttack();
@@ -205,7 +218,7 @@ public abstract class Unit : MonoBehaviour, Unit_I
             }
 
             if (hit.collider.gameObject.GetComponent<Health>() != null)
-            {
+            {                
                 hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
             }
         }

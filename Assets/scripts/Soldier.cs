@@ -27,6 +27,7 @@ public class Soldier : Unit
 
             if (hit.collider.gameObject.GetComponent<Health>() != null)
             {
+                attCastle = true;
                 hit.collider.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
             }
         }

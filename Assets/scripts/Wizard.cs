@@ -36,6 +36,7 @@ public class Wizard : Unit
 
                     if (cols.gameObject.GetComponent<Health>() != null)
                     {
+                        attCastle = true;
                         cols.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
                     }
                 }

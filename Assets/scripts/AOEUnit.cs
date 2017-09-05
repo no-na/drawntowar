@@ -33,6 +33,7 @@ public class AOEUnit : Unit
 
                     if (cols.gameObject.GetComponent<Health>() != null)
                     {
+                        attCastle = true;
                         cols.gameObject.GetComponent<Health>().TakeDamage(damageAmount);
                     }
                 }
